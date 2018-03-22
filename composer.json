@@ -1,0 +1,13 @@
+{
+    "config": {
+        "bin-dir": "bin/"
+    },
+    "autoload": {
+        "psr-0": {
+             "Code": "src/"
+        }
+    },
+    "require": {
+        "phpunit/phpunit": "4.2.6"
+    }
+}
