@@ -25,7 +25,7 @@ class Mail
 
     public function getTo()
     {
-        return $this->To;
+        return $this->to;
     }
 
     public function getSubject()
@@ -41,6 +41,7 @@ class Mail
     public function setCliente(Cliente $cliente)
     {
         $this->cliente = $cliente;
+        $this->to = $this->cliente->getEmail();
     }
 
     public function setFrom($v)
