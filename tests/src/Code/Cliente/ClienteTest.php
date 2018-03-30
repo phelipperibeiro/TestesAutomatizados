@@ -2,6 +2,8 @@
 
 namespace Code\Cliente;
 
+use \Code\Mail\SendMail;
+
 class ClienteTest extends \PHPUnit_Framework_TestCase
 {
 
@@ -16,9 +18,8 @@ class ClienteTest extends \PHPUnit_Framework_TestCase
 
     public function testVerificaSeSetGetEMail()
     {
-
         $cliente = new Cliente();
-        $cliente->setEMail('felipe@gmail.com');
+        $cliente->setEmail('felipe@gmail.com');
 
         $this->assertEquals('felipe@gmail.com', $cliente->getEmail());
     }
@@ -29,7 +30,31 @@ class ClienteTest extends \PHPUnit_Framework_TestCase
     public function testVerificaSeEmailSetadoEInvalido()
     {
         $cliente = new Cliente();
-        $cliente->setEMail('Felipe');
+        $cliente->setEmail('Felipe');
+    }
+
+    public function testVerificaSeConsegueEnviarEmailFuncional()
+    {
+        $mailTransport = new SendMail();
+
+        $cliente = new Cliente();
+        $cliente->setMailTransport($mailTransport);
+
+        $this->assertTrue($cliente->sendMail());
+    }
+    
+    public function testVerificaSeConsegueEnviar()
+    {    
+        $mailTransport = $this->getMock('\Code\Mail\SendMail', array('send'));
+
+        $mailTransport->expects($this->once())
+                ->method('send')
+                ->willReturn(true);        
+
+        $cliente = new Cliente();
+        $cliente->setMailTransport($mailTransport);
+
+        $this->assertTrue($cliente->sendMail());
     }
 
 }
