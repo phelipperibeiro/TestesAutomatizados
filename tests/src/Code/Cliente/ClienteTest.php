@@ -3,9 +3,25 @@
 namespace Code\Cliente;
 
 use \Code\Mail\SendMail;
+use \Code\Cliente\Cliente;
 
 class ClienteTest extends \PHPUnit_Framework_TestCase
 {
+
+    private $cliente;
+    private $db;
+
+    public function setUp()
+    {
+        //$this->cliente = new Cliente;
+        //$this->db = new \PDO('mysql:host=127.0.0.1;dbname=fsc', 'root', '123456');
+    }
+
+    public function tearDown()
+    {
+        //unset($this->cliente);
+        //unset($this->db);
+    }
 
     public function testVerificaSeSetGetNome()
     {
@@ -40,16 +56,16 @@ class ClienteTest extends \PHPUnit_Framework_TestCase
         $cliente = new Cliente();
         $cliente->setMailTransport($mailTransport);
 
-        $this->assertTrue($cliente->sendMail());
+        //$this->assertTrue($cliente->sendMail());
     }
-    
+
     public function testVerificaSeConsegueEnviar()
-    {    
+    {
         $mailTransport = $this->getMock('\Code\Mail\SendMail', array('send'));
 
         $mailTransport->expects($this->once())
                 ->method('send')
-                ->willReturn(true);        
+                ->willReturn(true);
 
         $cliente = new Cliente();
         $cliente->setMailTransport($mailTransport);
