@@ -42,7 +42,7 @@ class ClienteAgregatorTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals('thiago@gmail.com', $clientes[1]->getEmail());
     }
 
-    public function testVerificaFuncionamentoDoClienteAgregatorFuncional()
+    public function testVerificaFuncionamentoDoClienteAgregatorIntegracao()
     {
 
         $cliente = new Cliente;

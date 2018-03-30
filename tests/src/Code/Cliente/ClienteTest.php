@@ -33,7 +33,7 @@ class ClienteTest extends \PHPUnit_Framework_TestCase
         $cliente->setEmail('Felipe');
     }
 
-    public function testVerificaSeConsegueEnviarEmailFuncional()
+    public function testVerificaSeConsegueEnviarEmailIntegracao()
     {
         $mailTransport = new SendMail();
 

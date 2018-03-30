@@ -26,7 +26,7 @@ class MailTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals('felipe@gmail.com', $mail->getTo());
     }
 
-    public function testVerificaSeOSetClienteEstaModificandoValoresDosGettersFuncional()
+    public function testVerificaSeOSetClienteEstaModificandoValoresDosGettersIntegracao()
     {
         $cliente = new Cliente;
         $cliente->setEmail('felipe@gmail.com');
