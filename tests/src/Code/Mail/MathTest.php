@@ -49,7 +49,7 @@ class MathTest extends \PHPUnit_Framework_TestCase
     public function testVerificaSeConsegueSomarQuandoValorNaoForNumerico()
     {
         $math = new \Code\Math();
-        $math->soma(10, 'Isso é um teste'); // deve gerar uma exceção do tipo InvalidArgumentException
+        $math->soma(10, 'Isso e um teste'); // deve gerar uma excecao do tipo InvalidArgumentException
     }
 
 }

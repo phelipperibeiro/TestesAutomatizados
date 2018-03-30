@@ -8,7 +8,7 @@ class ClienteAgregator
     
     public function addCliente(Cliente $cliente)
     {
-        $this->clientes = $cliente;
+        $this->clientes[] = $cliente;
     }
     
     

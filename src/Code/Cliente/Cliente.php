@@ -25,6 +25,10 @@ class Cliente
 
     public function setEmail($v)
     {
+        if (!filter_var($v, FILTER_VALIDATE_EMAIL)) {
+            throw new \InvalidArgumentException("Email invalido");
+        }
+        
         $this->email = $v;
     }
 
